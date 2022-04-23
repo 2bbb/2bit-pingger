@@ -30,7 +30,7 @@ if(!fs.existsSync(list_path)) {
                 "google-dns": "8.8.8.8"
             }
         }
-    ];    
+    ];
     fs.writeFileSync(list_path, JSON.stringify(template, null, 4));
 }
 
