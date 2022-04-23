@@ -1,5 +1,11 @@
 # @2bit/pingger
 
+## install
+
+```bash
+npm i @2bit/pingger
+```
+
 ## how to use
 
 create `list.json` (or run `npm start` then create template automatically)
