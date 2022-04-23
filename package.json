@@ -1,0 +1,22 @@
+{
+  "name": "@2bit/pingger",
+  "version": "0.0.1",
+  "description": "network pingger",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start-daemon": "pm2 start index.js --name pingger",
+    "restart-daemon": "pm2 restart pingger"
+  },
+  "keywords": [ "network", "utility" ],
+  "author": "2bit",
+  "license": "MIT",
+  "dependencies": {
+    "@types/socket.io": "^2.1.13",
+    "dayjs": "^1.10.4",
+    "express": "^4.17.1",
+    "node-cron": "^3.0.0",
+    "ping": "^0.4.0",
+    "socket.io": "^4.0.0"
+  }
+}

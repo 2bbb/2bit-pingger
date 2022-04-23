@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ping status</title>
+        <style>
+            tr {
+                height: 24px;
+            }
+            .hb {
+                font-size: 12px;
+                width: 40px;
+                border: 1px solid #888;
+            }
+            .subhead {
+                background-color: #888;
+            }
+            .instance_name {
+                text-align: right;
+            }
+            .span4e {
+                border: solid;
+                background-color: #ddd;
+            }
+            .span4o {
+                border: solid;
+                background-color: #eee;
+            }
+        </style>
+    </head>
+<body>
+    <h1>ping realtime status / <a href="./log_index.html">logs</a></h1>
+    <table id="results"></table>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./jquery.min.js"></script>
+    <script src="./client.js"></script>
+</body>
+</html>

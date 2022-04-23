@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ping logs</title>
+        <style>
+            html,body {
+                height:100%;
+                padding:0;
+                margin:0;
+                overflow-y:hidden;
+            }
+            h1 {
+                height: 40px;
+            }
+            #graph {
+                height: calc(100% - 40px);
+                overflow-x: scroll;
+                overflow-y:hidden;
+            }
+        </style>
+    </head>
+<body>
+    <h1>ping logs / <a href="./">realtime status</a></h1>
+    <div id="graph"></div>
+    <script src="./d3.v5.min.js"></script>
+    <script src="./log_view.js"></script>
+</body>
+</html>
