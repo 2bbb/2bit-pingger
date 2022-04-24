@@ -16,6 +16,8 @@ Please create `~/pingger-settings.json` referring to the following template.
 pingger
 ```
 
+When running pingger, you can view logs with `http://{localhost|IP}:{PORT}` on browser.
+
 ## settings template
 
 ```json
