@@ -1,6 +1,6 @@
 {
   "name": "@2bit/pingger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "network pingger",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,10 @@
   "bin": {
     "pingger": "index.js"
   },
-  "keywords": [ "network", "utility" ],
+  "keywords": [
+    "network",
+    "utility"
+  ],
   "author": "2bit",
   "license": "MIT",
   "dependencies": {
