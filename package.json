@@ -8,6 +8,9 @@
     "start-daemon": "pm2 start index.js --name pingger",
     "restart-daemon": "pm2 restart pingger"
   },
+  "bin": {
+    "pingger": "index.js"
+  },
   "keywords": [ "network", "utility" ],
   "author": "2bit",
   "license": "MIT",

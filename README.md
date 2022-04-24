@@ -3,37 +3,47 @@
 ## install
 
 ```bash
-npm i @2bit/pingger
+npm i -g @2bit/pingger
 ```
 
 ## how to use
 
-create `list.json` (or run `npm start` then create template automatically)
+Please create `~/pingger-settings.json` referring to the following template.
 
-template:
+(or run `pingger` and stop, then create template automatically, then you can edit this you like.)
+
+```bash
+pingger
+```
+
+## settings template
 
 ```json
-[
-    {
-        "category": "A",
-        "instance": {
-            "name1": "192.168.0.2",
-            "name2": "192.168.0.3"
+{
+    "port": 3000,
+    "log_dir": "{USER_DIR}/pingger-logs",
+    "settings": [
+        {
+            "category": "A",
+            "instance": {
+                "name1": "192.168.0.2",
+                "name2": "192.168.0.3"
+            }
+        },
+        {
+            "category": "B",
+            "instance": {
+                "name3": "192.168.0.11"
+            }
+        },
+        {
+            "category": "wan",
+            "instance": {
+                "google-dns": "8.8.8.8"
+            }
         }
-    },
-    {
-        "category": "B",
-        "instance": {
-            "name3": "192.168.0.11"
-        }
-    },
-    {
-        "category": "wan",
-        "instance": {
-            "google-dns": "8.8.8.8"
-        }
-    }
-]
+    ]
+}
 ```
 
 ## LICENSE

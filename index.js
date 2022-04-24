@@ -1,15 +1,16 @@
+#! /usr/bin/env node
+
 const ping_interval = 5;
 
 const dayjs = require('dayjs');
 
 const fs = require('fs');
 const path = require('path');
-let logs = {};
-const log_dir = './logs';
-if(!fs.existsSync(log_dir)) fs.mkdirSync(log_dir);
 
-const list_path = path.join(__dirname, 'list.json');
-if(!fs.existsSync(list_path)) {
+const user_dir = process.env[process.platform == "win32" ? "USERPROFILE" : "HOME"];
+
+const settings_path = path.join(user_dir, './pingger-settings.json');
+if(!fs.existsSync(settings_path)) {
     const template = [
         {
             "category": "A",
@@ -31,10 +32,27 @@ if(!fs.existsSync(list_path)) {
             }
         }
     ];
-    fs.writeFileSync(list_path, JSON.stringify(template, null, 4));
+
+    const log_dir = path.join(user_dir, './pingger-logs');
+
+    const settings = {
+        port: 3000,
+        log_dir: log_dir,
+        list: template,
+    }
+    fs.writeFileSync(settings_path, JSON.stringify(settings, null, 4));
 }
 
-const list = JSON.parse(fs.readFileSync(list_path, 'utf8'));
+const settings = JSON.parse(fs.readFileSync(settings_path, 'utf8'));
+const {
+    port,
+    log_dir,
+    list,
+} = settings;
+
+
+let logs = {};
+if(!fs.existsSync(log_dir)) fs.mkdirSync(log_dir);
 
 const results = {};
 list.forEach(group => {
@@ -55,8 +73,6 @@ const IO = require('socket.io');
 const app    = express();
 const server = http.Server(app);
 const io     = IO(server);
-
-const PORT = process.env.PORT || 3000;
 
 io.on('connection', (socket) => {
     console.log('connection');
@@ -88,8 +104,8 @@ app.get('/log_list', (req, res) => {
 });
 
 // サーバーの起動
-server.listen(PORT, () => {
-    console.log('server starts on port: %d', PORT);
+server.listen(port, () => {
+    console.log('server starts on port: %d', port);
 });
 
 
